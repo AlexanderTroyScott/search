@@ -5,6 +5,9 @@ services:
     image: searxng/searxng:latest
     networks:
      - reverse-proxy
+    environment:
+      - BASE_URL=https://search.actuary.dev
+      - INSTANCE_NAME=search
     deploy:
       labels:
         - "traefik.enable=true"
