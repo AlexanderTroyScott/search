@@ -15,7 +15,8 @@ services:
         - "traefik.http.routers.search.entrypoints=websecure"
         - "traefik.http.routers.search.service=search"
         - "traefik.http.routers.search.tls.certresolver=myresolver"
- 
+        - "traefik.http.services.search.loadbalancer.server.port=8080" 
 networks:
   reverse-proxy:
     external: true
+
