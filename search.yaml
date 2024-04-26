@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  search:
+    image: searxng/searxng:latest
+    networks:
+     - reverse-proxy
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.search.rule=Host(`search.actuary.dev`)"
+        - "traefik.http.routers.search.entrypoints=websecure"
+        - "traefik.http.routers.search.service=search"
+        - "traefik.http.routers.search.tls.certresolver=myresolver"
+ 
+networks:
+  reverse-proxy:
+    external: true
