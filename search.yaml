@@ -17,7 +17,7 @@ services:
         - "traefik.http.routers.search.tls.certresolver=myresolver"
         - "traefik.http.services.search.loadbalancer.server.port=8080" 
         ## Middlewares
-        - "traefik.http.routers.search.middlewares=authentik@file"
+        - "traefik.http.routers.search.middlewares=authentik"
 networks:
   reverse-proxy:
     external: true
